@@ -10,18 +10,21 @@ public class Member {
 	private String attendance;
 	
 	private ArrayList<Score> scoreList = new ArrayList<Score>();
-	
-	public Member(String memberName, int memberId, String attendance) {
-		this.memberName = memberName;
-		this.memberId = memberId;
-		this.attendance = attendance;
-	}
+	private ArrayList<Member> atdMemberList = new ArrayList<Member>();	
+	private ArrayList<Game> gameList = new ArrayList<Game>();	
 	
 	public Member(String memberName, int memberId, String gender, int average) {
 		this.memberName = memberName;
 		this.memberId = memberId;
 		this.gender = gender;
 		this.average = average;
+	}
+	
+	public Member(String memberName, int memberId, String gender, String attendance) {
+		this.memberName = memberName;
+		this.memberId = memberId;
+		this.gender = gender;
+		this.attendance = attendance;
 	}
 	
 	public void addGameScore(Score score) {
@@ -75,6 +78,24 @@ public class Member {
 	public void setScoreList(ArrayList<Score> scoreList) {
 		this.scoreList = scoreList;
 	}
+
+	public ArrayList<Member> getAtdMemberList() {
+		return atdMemberList;
+	}
+
+	public void setAtdMemberList(ArrayList<Member> atdMemberList) {
+		this.atdMemberList = atdMemberList;
+	}
+
+	public ArrayList<Game> getGameList() {
+		return gameList;
+	}
+
+	public void setGameList(ArrayList<Game> gameList) {
+		this.gameList = gameList;
+	}
+	
+	
 	
 	
 	

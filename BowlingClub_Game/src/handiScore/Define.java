@@ -8,7 +8,7 @@ public class Define {
 	public static final int GAME4 = 1004;
 	
 	
-	// 남여 핸디 부여
+	// 성별코드부여
 	public static final int FEMALE = 0;
 	public static final int MALE = 1;
 	

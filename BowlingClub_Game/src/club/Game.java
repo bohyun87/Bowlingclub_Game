@@ -10,6 +10,7 @@ public class Game {
 	private int handiType;
 	
 	private ArrayList<Member> atdMemberList = new ArrayList<Member>();
+	private ArrayList<Member> MemberList = new ArrayList<Member>();
 	
 	public Game(String gameName, int gameId) {
 		this.gameName = gameName;
@@ -53,6 +54,16 @@ public class Game {
 	public void setAtdMemberList(ArrayList<Member> atdMemberList) {
 		this.atdMemberList = atdMemberList;
 	}
+
+	public ArrayList<Member> getMemberList() {
+		return MemberList;
+	}
+
+	public void setMemberList(ArrayList<Member> memberList) {
+		MemberList = memberList;
+	}
+	
+	
 	
 	
 	
