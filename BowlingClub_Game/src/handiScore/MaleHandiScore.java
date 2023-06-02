@@ -4,7 +4,7 @@ public class MaleHandiScore implements HandicapScore {
 
 	@Override
 	public int getHandicapScore(int average) {
-		int handiScore = 0;
+		int handiScore;
 		int maleHandiScore = 0;
 		
 		if(average >= 200) {
@@ -17,7 +17,7 @@ public class MaleHandiScore implements HandicapScore {
 			handiScore = 20;
 		} else if(average < 170 && average >= 160) {
 			handiScore = 30;
-		} else if(average < 160) {
+		} else {
 			handiScore = 40;
 		}
 		

@@ -8,9 +8,10 @@ public class Game {
 	private String gameName;
 	private int gameId;
 	private int handiType;
+	private int memberId;
 	
 	private ArrayList<Member> atdMemberList = new ArrayList<Member>();
-	private ArrayList<Member> MemberList = new ArrayList<Member>();
+	private ArrayList<Member> memberList = new ArrayList<Member>();
 	
 	public Game(String gameName, int gameId) {
 		this.gameName = gameName;
@@ -18,8 +19,13 @@ public class Game {
 		this.handiType = Define.MALE;
 	}
 	
-	//정기전 참석 희망한 회원
+	//회원가입한 회원
 	public void register(Member member) {
+		memberList.add(member);
+	}
+	
+	//정기전 참석 희망한 회원
+	public void register1(Member member) {
 		atdMemberList.add(member);
 	}
 
@@ -56,12 +62,23 @@ public class Game {
 	}
 
 	public ArrayList<Member> getMemberList() {
-		return MemberList;
+		return memberList;
 	}
 
 	public void setMemberList(ArrayList<Member> memberList) {
-		MemberList = memberList;
+		this.memberList = memberList;
 	}
+
+	public int getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
+	}
+	
+	
+	
 	
 	
 	

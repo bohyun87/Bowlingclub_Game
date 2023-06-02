@@ -25,17 +25,20 @@ public class RegualarGameReport {
 		
 		System.out.println(RegualarGameReport.TITLE);
 		
-		for(Game game : gameList ) {
-			makeHeader(game);
-			makeMemberList(game);
-			makeBodyHeader(game);
-			makeBody(game);
-			makeFooter();
-		}
+		Game game = gameList.get(0);
+		
+			for(int i=0; i<1; i++){
+				makeHeader(game);
+				makeMemberList(game);
+				makeBodyHeader(game);
+				makeBody(game);
+				makeFooter();
+			}
+		
 		return buffer.toString();
 	}
 	
-	public void makeHeader(Game game) {
+	public void makeHeader(Game gameList) {
 		buffer.append(RegualarGameReport.LINE);
 		buffer.append(RegualarGameReport.MEMBERLIST);
 		buffer.append(RegualarGameReport.HEADER);
@@ -43,18 +46,17 @@ public class RegualarGameReport {
 	}
 	
 	public void makeMemberList(Game game) {
-		ArrayList<Member> memberList = game.getMemberList();
 		
-		for(int i=0; i<memberList.size(); i++) {
-			Member member = memberList.get(i);
-			buffer.append(member.getMemberName());
-			buffer.append(" | ");
-			buffer.append(member.getGender());
-			buffer.append(" | ");
-			buffer.append(member.getAverage());
-			buffer.append("\n");
-			buffer.append(LINE);
-		}
+		  ArrayList<Member> memberList = game.getMemberList();
+		  
+		  for(int i=0; i<memberList.size(); i++) {
+			  Member member = memberList.get(i);
+			  
+		  buffer.append(member.getMemberName()); buffer.append(" | ");
+		  buffer.append(member.getGender()); buffer.append(" | ");
+		  buffer.append(member.getAverage()); buffer.append("\n"); buffer.append(LINE);
+		  }
+		 
 	}
 	
 	public void makeBodyHeader(Game game) {
@@ -69,12 +71,15 @@ public class RegualarGameReport {
 		
 		for(int i=0; i<atdMemberList.size(); i++) {
 			Member member = atdMemberList.get(i);
+			
+			
 			buffer.append(member.getMemberName());
 			buffer.append(" | ");
 			buffer.append(member.getGender());
 			buffer.append(" | ");
 			
-			getHandiScore(member, member.getGender());			
+			getHandiScore(member, member.getGender());
+			getScore(member, member.getScoreList());
 			buffer.append("\n");
 			buffer.append(LINE);
 			
@@ -87,20 +92,32 @@ public class RegualarGameReport {
 		ArrayList<Score> scoreList = member.getScoreList();
 		
 		String gen = member.getGender();
-		HandicapScore[] handicapScore = {new FemaleHandiScore(), new MaleHandiScore()};
 		
-		for(Score score : scoreList ) {
-			int handiScore;
+		HandicapScore[] handicapScore = {new FemaleHandiScore(), new MaleHandiScore()};
+		int handiScore;
+			
+		for(int i=0; i<1; i++) {
+			Score score = scoreList.get(i);
 			
 			if(member.getGender().equals("남") ) {
 				handiScore = handicapScore[Define.MALE].getHandicapScore(member.getAverage());
 			} else {
 				handiScore = handicapScore[Define.FEMALE].getHandicapScore(member.getAverage());
-			}
-			
+			}	
+		
 			buffer.append("+" + handiScore);
 			buffer.append(" | ");
-			buffer.append(score.getScore());
+		}
+		
+		
+	}
+	
+	//게임점수
+	public void getScore(Member member, ArrayList<Score> arrayList) {
+		ArrayList<Score> scoreList = member.getScoreList();
+		for(Score s : scoreList ) {
+			
+			buffer.append(scoreList.get(0));
 			buffer.append(" | ");
 			
 			
@@ -120,9 +137,10 @@ public class RegualarGameReport {
 		map.put("서현진", "참");
 		
 		buffer.append(ENTRY);
-		buffer.append(map.size());		
+		buffer.append(map.size() + "명");		
 		buffer.append("\n");
 	}
+
 	
 	
 

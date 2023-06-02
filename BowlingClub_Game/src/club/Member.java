@@ -6,12 +6,13 @@ public class Member {
 	private String memberName;
 	private int memberId;
 	private String gender;
+	private int genderId;
 	private int average;  //기존 에버리지
 	private String attendance;
 	
 	private ArrayList<Score> scoreList = new ArrayList<Score>();
-	private ArrayList<Member> atdMemberList = new ArrayList<Member>();	
-	private ArrayList<Game> gameList = new ArrayList<Game>();	
+	private ArrayList<Member> atdMemberList = new ArrayList<>();	
+	private ArrayList<Game> gameList = new ArrayList<>();	
 	
 	public Member(String memberName, int memberId, String gender, int average) {
 		this.memberName = memberName;
@@ -93,6 +94,14 @@ public class Member {
 
 	public void setGameList(ArrayList<Game> gameList) {
 		this.gameList = gameList;
+	}
+
+	public int getGenderId() {
+		return genderId;
+	}
+
+	public void setGenderId(int genderId) {
+		this.genderId = genderId;
 	}
 	
 	
